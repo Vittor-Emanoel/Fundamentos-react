@@ -1,4 +1,9 @@
 import React from 'react'
-import { ReactDOM } from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(document.getElementById('root'))
+ReactDOM.render(
+  <h1>
+    <span>Olá mundo!!</span>
+  </h1>,
+  document.getElementById('root')
+)
