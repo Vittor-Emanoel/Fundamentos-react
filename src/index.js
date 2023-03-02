@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { App } from './App'
+
+
 
 ReactDOM.render(
-  <h1>
-    <span>Olá mundo!</span>
-  </h1>,
+      <App />,
   document.getElementById('root')
 )
