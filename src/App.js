@@ -1,10 +1,12 @@
 import React from 'react'
 
+const category = 'Posts da semana'
+
 export function App() {
   return(
     <>
-    <h1>Component App</h1>
-    <h2>Subtitulo</h2>
+    <h1>JStack's Blog {category}</h1>
+    <h2>{category}</h2>
     </>
   )
 }
