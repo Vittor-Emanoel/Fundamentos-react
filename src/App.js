@@ -1,5 +1,10 @@
 import React from 'react'
 
 export function App() {
-  return <h1>Component App</h1>
+  return(
+    <>
+    <h1>Component App</h1>
+    <h2>Subtitulo</h2>
+    </>
+  )
 }
