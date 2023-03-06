@@ -8,12 +8,13 @@ export function App() {
   return(
     <>
   
-      <Header title="JStack's Blog">
+      <Header>
         <h2>Posts da semana</h2>
       </Header>
       <hr />
       
     <Post 
+    likes={20}
     post={{
       title:'titulo da noticia 01', 
       subtitle: 'subtitulo da noticia 01'
@@ -21,6 +22,7 @@ export function App() {
    />
 
     <Post 
+    likes={15}
         post={{
           title:'titulo da noticia 02', 
           subtitle: 'subtitulo da noticia 02'
@@ -28,6 +30,7 @@ export function App() {
       />
 
     <Post 
+      likes={11}
         post={{
           title:'titulo da noticia 03', 
           subtitle: 'subtitulo da noticia 03'
