@@ -3,6 +3,12 @@ import Header from './Header'
 import Post from './Post'
 
 
+const posts = [
+  {title: 'Title#01', subtitle: 'Sub#01', likes: 20},
+  {title: 'Title#02', subtitle: 'Sub#02', likes: 10},
+  {title: 'Title#03', subtitle: 'Sub#03', likes: 50}
+]
+
 
 export function App() {
   return(
@@ -12,30 +18,17 @@ export function App() {
         <h2>Posts da semana</h2>
       </Header>
       <hr />
-      
-    <Post 
-    likes={20}
-    post={{
-      title:'titulo da noticia 01', 
-      subtitle: 'subtitulo da noticia 01'
-    }}
-   />
 
-    <Post 
-    likes={15}
-        post={{
-          title:'titulo da noticia 02', 
-          subtitle: 'subtitulo da noticia 02'
-        }}
-      />
-
-    <Post 
-      likes={11}
-        post={{
-          title:'titulo da noticia 03', 
-          subtitle: 'subtitulo da noticia 03'
-        }}
-      />
+        {posts.map((post) => (
+          <Post 
+            key={post.title}
+            likes={post.likes}
+            post={{
+              title: post.title,
+              subtitle: post.subtitle,
+            }}
+          />
+        ))}
     </>
   )
 }
