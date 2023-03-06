@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './Header'
 import Post from './Post'
 
 
@@ -6,10 +7,12 @@ import Post from './Post'
 export function App() {
   return(
     <>
-    <h1>JStack's Blog</h1>
-    <h2>Posts da semana</h2>
-    <hr />
-
+  
+      <Header title="JStack's Blog">
+        <h2>Posts da semana</h2>
+      </Header>
+      <hr />
+      
     <Post 
     post={{
       title:'titulo da noticia 01', 
