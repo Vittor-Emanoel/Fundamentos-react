@@ -11,14 +11,14 @@ const [posts, setPosts] = useState([
   {id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10},
   {id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50}
 ])
-console.log({posts});
 
 function handleRefresh() {
-    setPosts([...posts,
+    setPosts((prevState) => [
+      ...prevState,
       {
         id: Math.random(), 
-        title: `Title#0${posts.length + 1}`, 
-        subtitle: `Sub#0${posts.length + 1}`, 
+        title: `Title#0${prevState.length + 1}`, 
+        subtitle: `Sub#0${prevState.length + 1}`, 
         likes: 50
       }])
 }
