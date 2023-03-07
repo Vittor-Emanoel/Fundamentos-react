@@ -23,11 +23,19 @@ function handleRefresh() {
       }])
 }
 
+function handleRemovePost(postId) {
+   setPosts((prevState) => (
+    prevState.filter(post => post.id !== postId)
+   )
+  )
+}
+
   return (
     <>
       <Header>
-        <h2>Posts da semana</h2>
+        <h2>Posts da semana
         <button onClick={handleRefresh}>Atualizar</button>
+        </h2>
       </Header>
       <hr />
 
@@ -35,7 +43,9 @@ function handleRefresh() {
           <Post 
             key={post.id}
             likes={post.likes}
+            onRemove={handleRemovePost}
             post={{
+              id: post.id,
               title: post.title,
               subtitle: post.subtitle,
             }}
