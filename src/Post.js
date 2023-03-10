@@ -1,24 +1,29 @@
-import PropTypes from 'prop-types';
-import React from "react";
+import PropTypes from 'prop-types'
+import React from 'react'
+import PostHeader from './PostHeader'
 
 //props => propriedades
 function Post(props) {
   //Renderização condicional 3 formas: IF, TERNÁRIO & SHORT
-  return (  
+  return (
     <>
-    <article>
-      <strong>
-        {props.post.read && <s>{props.post.title}</s>}
-      </strong>
-      <button onClick={() => props.onRemove(props.post.id)}>Remover</button>
+      <article>
+        <PostHeader
+          onRemove={props.onRemove}
+          post={{
+            id: props.post.id,
+            title: props.post.title,
+            read: props.post.read,
+          }}
+        />
+        <br />
+        <small>{props.post.subtitle}</small>
+        <br />
+        Likes: {props.post.likes / 2}
+      </article>
       <br />
-      <small>{props.post.subtitle}</small>
-      <br /> 
-      Likes: {props.post.likes / 2}
-    </article>
-    <br />
     </>
-  );
+  )
 }
 
 Post.propTypes = {
@@ -28,8 +33,8 @@ Post.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
-    read: PropTypes.bool.isRequired
-  }).isRequired 
+    read: PropTypes.bool.isRequired,
+  }).isRequired,
 }
 
-export default Post;
+export default Post
