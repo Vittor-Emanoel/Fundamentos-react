@@ -1,21 +1,17 @@
 import PropTypes from 'prop-types'
 import React, { useContext } from 'react'
 import Button from './Button'
+import styles from './Header.css'
 import { ThemeContext } from './ThemeContext'
 
 function Header(props) {
   const { onToggleTheme } = useContext(ThemeContext)
 
-  console.log({ onToggleTheme })
+  console.log({ styles })
 
   return (
-    <div
-      style={{
-        background: '#ccc',
-        fontFamily: 'sans-serif',
-      }}
-    >
-      <h1>{props.title}</h1>
+    <div>
+      <h1 className={styles.title}>{props.title}</h1>
       <Button onClick={onToggleTheme}>Mudar tema</Button>
       {props.children}
     </div>

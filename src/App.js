@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import Header from './Header'
-import Post from './Post'
 import { ThemeProvider } from './ThemeContext'
 
-//contextAPI
+import Header from './Header'
+import Post from './Post'
+
+import styles from './App.css'
 
 // React trabalha com imutabilidade
 
@@ -47,6 +48,7 @@ export function App() {
         title: `Title#0${prevState.length + 1}`,
         subtitle: `Sub#0${prevState.length + 1}`,
         likes: 50,
+        read: false,
       },
     ])
   }
@@ -58,7 +60,7 @@ export function App() {
   return (
     <ThemeProvider>
       <Header>
-        <h2>
+        <h2 className={styles.title}>
           Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>

@@ -5,8 +5,6 @@ import { ThemeContext } from './ThemeContext'
 function Button(props) {
   const { theme } = useContext(ThemeContext)
 
-  console.log({ theme })
-
   return (
     <button
       onClick={props.onClick}
