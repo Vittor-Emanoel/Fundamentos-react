@@ -4,7 +4,7 @@ import { ThemeProvider } from './ThemeContext'
 import Header from './Header'
 import Post from './Post'
 
-import styles from './App.css'
+import styles from './App.scss'
 
 // React trabalha com imutabilidade
 
