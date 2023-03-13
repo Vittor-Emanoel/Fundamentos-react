@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ThemeProvider } from './ThemeContext'
+import { ThemeProvider } from '../context/ThemeContext'
 
-import Header from './Header'
-import Post from './Post'
+import Header from '../Header'
+import Post from '../Post/Post'
 
 import styles from './App.scss'
 
