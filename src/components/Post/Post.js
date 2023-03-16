@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './Post.scss'
 import PostHeader from './PostHeader'
-import { Rate, Subtitle } from './styles'
+import { Container, Rate, Subtitle } from './styles'
 
 //props => propriedades
 function Post(props) {
   //Renderização condicional 3 formas: IF, TERNÁRIO & SHORT
   return (
-    <article className={props.post.removed ? styles.postDeleted : styles.post}>
+    <Container removed={props.post.removed}>
       <PostHeader
         onRemove={props.onRemove}
         post={{
@@ -21,7 +20,7 @@ function Post(props) {
       <Subtitle>{props.post.subtitle}</Subtitle>
 
       <Rate>Média: {props.post.likes / 2}</Rate>
-    </article>
+    </Container>
   )
 }
 
