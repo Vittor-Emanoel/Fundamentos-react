@@ -1,5 +1,6 @@
 
-import React, { createContext, useMemo, useState } from "react"
+import React, { createContext, useMemo } from "react"
+import useLocalStorage from "../hooks/useLocalState"
 import themes from '../styles/themes'
 
 
@@ -8,7 +9,8 @@ export const GlobalContext = createContext({
 })
 
 export const GlobalProvider = ({children}) => {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useLocalStorage('Tema')
+
 
   const currentTheme = useMemo(() => {
     return themes[theme] || themes.dark
