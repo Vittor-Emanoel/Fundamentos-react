@@ -17,6 +17,8 @@ function App() {
     setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'))
   }
 
+  console.log(currentTheme)
+
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />

@@ -6,5 +6,8 @@ export default {
     medium: 16,
     large: 24,
   },
+  fontSize: {
+    regular: 1,
+  },
   borderRadius: '10px',
 }
