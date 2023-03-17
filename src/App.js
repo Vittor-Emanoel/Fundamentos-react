@@ -10,13 +10,17 @@ function App() {
   const [theme, setTheme] = useState('dark')
 
   const currentTheme = useMemo(() => {
-    return themes[theme]
+    return themes[theme] || themes.dark
   }, [theme])
 
+  function handleToggleTheme() {
+    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'))
+  }
+
   return (
-    <ThemeProvider theme={themes.light}>
+    <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
-      <Layout />
+      <Layout selectedTheme={theme} onToggleTheme={handleToggleTheme} />
     </ThemeProvider>
   )
 }
