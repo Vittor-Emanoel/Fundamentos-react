@@ -1,6 +1,6 @@
 
-import React, { createContext, useMemo } from "react"
-import useLocalStorage from "../hooks/useLocalState"
+import React, { createContext, useMemo, useState } from "react"
+import useLocalStorage from "../hooks/useLocalStorage"
 import themes from '../styles/themes'
 
 
@@ -19,6 +19,11 @@ export const GlobalProvider = ({children}) => {
   function handleToggleTheme() {
     setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'))
   }
+
+  //função de efeito
+  useState(() => {
+    console.debug('useEffect executou') 
+}, [theme])
 
 
   return (
