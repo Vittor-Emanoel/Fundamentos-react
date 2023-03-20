@@ -1,5 +1,5 @@
 
-import React, { createContext, useMemo, useState } from "react"
+import React, { createContext, useMemo, useRef, useState } from "react"
 import useLocalStorage from "../hooks/useLocalStorage"
 import themes from '../styles/themes'
 
@@ -12,6 +12,10 @@ export const GlobalProvider = ({children}) => {
   const [theme, setTheme] = useLocalStorage('Tema')
 
 
+  //manter o valor a cada render
+  const firstRender = useRef(true);
+  
+
   const currentTheme = useMemo(() => {
     return themes[theme] || themes.dark
   }, [theme])
@@ -22,7 +26,12 @@ export const GlobalProvider = ({children}) => {
 
   //função de efeito
   useState(() => {
-    console.debug('useEffect executou') 
+    if(firstRender.current) {
+      firstRender.current = false;
+      return
+    }
+
+    console.debug({theme}) 
 }, [theme])
 
 
