@@ -6,18 +6,14 @@ import PostsList from '../PostsList'
 
 export default function Layout({ onToggleTheme, selectedTheme }) {
 
-  useEffect(() => {
-      console.debug({
-        selectedTheme
-      })
-
-    //sempre que o component for desmontado retornando uma função
-
-      return () => {
-        console.debug('Component saiu da tela')
+    useEffect(() => {
+      function handleScroll () {
+        console.log('Scroll')
       }
+      document.addEventListener('scroll', handleScroll)
 
-  }, [selectedTheme])
+      return () =>  document.removeEventListener('scroll', handleScroll)
+    }, [])
 
   return (
     <>
