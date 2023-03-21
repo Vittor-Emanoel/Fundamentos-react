@@ -7,23 +7,13 @@ import Layout from './components/Layout'
 import GlobalStyle from './styles/global'
 import themes from './styles/themes'
 
-
-
 class App extends Component {
-  constructor(props) {
-    super(props)
-   
-    //primeira forma de criar state
-    this.state = {
-      theme: 'dark',
-    }
 
-    this.handleToggleTheme = this.handleToggleTheme.bind(this)
+  state = {
+    theme: 'dark',
   }
 
-  handleToggleTheme() {
-
-    console.log(this)
+  handleToggleTheme = () => {
     this.setState(prevState => ({theme: prevState.theme === 'dark' ? 'light' : 'dark'}))
   }
 
