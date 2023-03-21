@@ -14,13 +14,19 @@ class App extends Component {
   }
 
   handleToggleTheme = () => {
-    this.setState(prevState => ({theme: prevState.theme === 'dark' ? 'light' : 'dark'}))
+    console.log('handleToggleTheme executou');
+
+    this.forceUpdate()
+    // this.setState(prevState => ({theme: prevState.theme === 'dark' ? 'light' : 'dark'}))
+    
   }
 
   render() {
     
 
     const {theme} = this.state
+
+    console.log('<App /> renderizou');
 
     return (
       
