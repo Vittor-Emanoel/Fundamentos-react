@@ -31,7 +31,7 @@ export const GlobalProvider = ({children}) => {
       return
     }
 
-    console.debug({theme}) 
+
 }, [theme])
 
 

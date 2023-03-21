@@ -1,15 +1,27 @@
-import React, { useContext, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { GlobalContext } from './contexts/GlobalContext'
 
 
+
+import themes from './styles/themes'
 //Styles
 import Layout from './components/Layout'
 import GlobalStyle from './styles/global'
 
 
 function App() {
-  const {theme, currentTheme} = useContext(GlobalContext)
+
+  // const {theme, currentTheme} = useContext(GlobalContext)
+  const [theme, setTheme] = useState('dark')
+
+
+  const currentTheme = useMemo(() => {
+    return themes[theme] || themes.dark
+  }, [theme])
+
+  function handleToggleTheme() {
+    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'))
+  }
 
 
   //função de efeito
@@ -29,7 +41,7 @@ function App() {
 
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
-      <Layout  />
+      <Layout selectedTheme={theme} onToggleTheme={handleToggleTheme} />
     </ThemeProvider>
 
   )
