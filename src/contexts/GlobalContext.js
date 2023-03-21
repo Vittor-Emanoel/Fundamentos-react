@@ -4,9 +4,7 @@ import useLocalStorage from "../hooks/useLocalStorage"
 import themes from '../styles/themes'
 
 
-export const GlobalContext = createContext({
-
-})
+export const GlobalContext = createContext({})
 
 export const GlobalProvider = ({children}) => {
   const [theme, setTheme] = useLocalStorage('Tema')

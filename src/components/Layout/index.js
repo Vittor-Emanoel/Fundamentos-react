@@ -8,7 +8,7 @@ export default function Layout({ onToggleTheme, selectedTheme }) {
 
     useEffect(() => {
       function handleScroll () {
-        console.log('Scroll')
+     
       }
       document.addEventListener('scroll', handleScroll)
 
@@ -17,11 +17,11 @@ export default function Layout({ onToggleTheme, selectedTheme }) {
 
   return (
     <>
-      <Header selectedTheme={selectedTheme} onToggleTheme={onToggleTheme} />
+      <Header/>
 
       <PostsList />
 
-      <Footer selectedTheme={selectedTheme} onToggleTheme={onToggleTheme} />
+      <Footer  />
     </>
   )
 }

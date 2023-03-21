@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { ThemeContext } from '../../contexts/ThemeContext';
+
 import { Container } from './styles';
 
 export default class Header extends React.Component {
@@ -8,12 +10,16 @@ export default class Header extends React.Component {
     const {onToggleTheme, selectedTheme} = this.props;
 
     return (
-      <Container>
-      <h1>JStack's Blog</h1>
-        <button type="button" onClick={onToggleTheme}>
-        {selectedTheme === 'dark' ? '🌞' : '🌑'}
-      </button>
-    </Container>
+      <ThemeContext.Consumer>
+        {({theme, handleToggleTheme}) => (
+            <Container>
+            <h1>JStack's Blog</h1>
+              <button type="button" onClick={handleToggleTheme}>
+              {theme === 'dark' ? '🌞' : '🌑'}
+            </button>
+          </Container>
+        )}
+    </ThemeContext.Consumer>
     )
   }
 }
