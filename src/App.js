@@ -17,8 +17,15 @@ class App extends Component {
     this.state = {
       theme: 'dark',
     }
+
+    this.handleToggleTheme = this.handleToggleTheme.bind(this)
   }
 
+  handleToggleTheme() {
+
+    console.log(this)
+    this.setState(prevState => ({theme: prevState.theme === 'dark' ? 'light' : 'dark'}))
+  }
 
   render() {
     
@@ -31,9 +38,7 @@ class App extends Component {
       <GlobalStyle />
       <Layout 
       selectedTheme={theme} 
-      onToggleTheme={() => {
-        this.setState(prevState => ({ theme: prevState.theme === 'dark' ? 'light' : 'dark'}))
-      }} />
+      onToggleTheme={this.handleToggleTheme} />
     </ThemeProvider>
 
       )
