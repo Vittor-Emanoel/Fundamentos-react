@@ -9,46 +9,6 @@ import GlobalStyle from './styles/global'
 import themes from './styles/themes'
 
 class App extends Component {
-  state = {
-    changed: false
-  }
-
-
-  componentDidMount() {
-    console.log('componentDidMount executed')
-  }  
-
-  //antes dele sofrer as atualizações
-  componentDidUpdate(prevPros, prevState) {
-    console.log({
-      currentState: this.state,
-      prevPros,
-      prevState
-    })
-  }  
-
-  //captura os erros dos filhos
-  componentDidCatch(error, info) {
-    console.log({error, info})
-  }
-  
-  //antes do método ser atualizado 
-  shouldComponentUpdate(nextPros, nextState) {
-    console.log({
-      currentState: this.state,
-      nextPros,
-      nextState
-    })
-
-    return true
-  }
-
-  //quando o component é desmontado
-
-  componentWillUnmount() {
-    
-  }
-
   render() {
         return (
           <ThemeProvider>
