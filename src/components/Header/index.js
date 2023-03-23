@@ -4,6 +4,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 
 import { Container } from './styles';
 
+
 export default class Header extends React.Component {
   render() {
     

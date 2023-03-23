@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Link } from 'react-router-dom'
 import Routes from '../../Routes'
 
@@ -6,16 +6,8 @@ import Footer from '../Footer'
 import Header from '../Header'
 import { Nav } from './styles'
 
-export default function Layout({ onToggleTheme, selectedTheme }) {
+export default function Layout() {  
 
-    useEffect(() => {
-      function handleScroll () {
-     
-      }
-      document.addEventListener('scroll', handleScroll)
-
-      return () =>  document.removeEventListener('scroll', handleScroll)
-    }, [])
 
   return (
     <BrowserRouter>
