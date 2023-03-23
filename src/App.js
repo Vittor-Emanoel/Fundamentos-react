@@ -1,48 +1,34 @@
 import React, { Component } from 'react'
-import { ThemeProvider } from 'styled-components'
-
+import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { ThemeContext, ThemeProvider } from './contexts/ThemeContext'
 
 //Styles
+
 import Layout from './components/Layout'
 import GlobalStyle from './styles/global'
 import themes from './styles/themes'
 
 class App extends Component {
+  componentDidMount() {
+    console.log('componentDidMount executed')
+  }  
 
-  state = {
-    theme: 'dark',
-  }
-
-  handleToggleTheme = () => {
-    console.log('handleToggleTheme executou');
-
-    this.forceUpdate()
-    // this.setState(prevState => ({theme: prevState.theme === 'dark' ? 'light' : 'dark'}))
-    
-  }
 
   render() {
-    
-
-    const {theme} = this.state
-
-    console.log('<App /> renderizou');
-
-    return (
-      
-    <ThemeProvider theme={themes[theme] || themes.dark}>
-      <GlobalStyle />
-      <Layout 
-      selectedTheme={theme} 
-      onToggleTheme={this.handleToggleTheme} />
-    </ThemeProvider>
-
+        return (
+          <ThemeProvider>
+            <ThemeContext.Consumer>
+              {({theme}) => (
+                  <StyledThemeProvider theme={themes[theme] || themes.dark}>
+                  <GlobalStyle />
+                  <Layout />
+                </StyledThemeProvider>
+              )}
+            </ThemeContext.Consumer>
+          </ThemeProvider>
       )
-  }
+   }
 }
-
-
-
 
 // function App() {
 
