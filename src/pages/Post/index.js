@@ -1,21 +1,38 @@
-import React, { useMemo } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import React from 'react';
 
 
-function Post() {
-  const params = useParams()
-  const {search} = useLocation()
-  const queryParams = useMemo(() => new URLSearchParams(search), [search])
+export default class Post extends React.Component {
+  constructor(props) {
+    super(props)
 
-  console.log(queryParams)
+    const {search} = this.props.location
 
-  return ( 
-    
-    <>
-    <h1>Post page</h1>
-    {console.log(params)}
-    </>
-   );
+    this.queryParams = new URLSearchParams(search)
+  }
+
+  render() {
+    console.log(this.queryParams.get('meuQueryParams'))
+
+    return  <h1>Post page</h1>
+  }
 }
 
-export default Post;
+
+// function Post() {
+//   const params = useParams()
+//   const {search} = useLocation()
+//   const queryParams = useMemo(() => new URLSearchParams(search), [search])
+
+//   console.log(queryParams)
+
+//   return ( 
+    
+//     <>
+//     <h1>Post page</h1>
+//     {console.log(params)}
+//     </>
+//    );
+// }
+
+// export default Post;
+
